@@ -64,4 +64,4 @@ def add_score(game_difficulty, name, result):
 
 
 
-add_score(1, 'salo', True)
+
