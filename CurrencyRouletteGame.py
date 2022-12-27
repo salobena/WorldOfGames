@@ -22,7 +22,7 @@ def get_money_interval(game_difficulty):
     # url = "https://currency-converter5.p.rapidapi.com/currency/convert"
     # querystring = {"format": "json", "from": "USD", "to": "ILS", "amount": dollar_amount}
     # headers = {
-    #     "X-RapidAPI-Key": "39d97a81f3msh8f4135d66dba709p1e7c1fjsn781bebd2a3d4",
+    #     "X-RapidAPI-Key": "xxxxxxxxxxxxx",
     #     "X-RapidAPI-Host": "currency-converter5.p.rapidapi.com"
     # }
     # response = requests.request("GET", url, headers=headers, params=querystring)
