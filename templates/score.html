@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+<title>Scores Game</title>
 </head>
 <body>
-$END$
+<h1>Scores Game</h1>
+<table style=" border: 2px solid black;">
+    <tr style=" border: 2px solid black;">
+      <th  style=" border: 2px solid black;color: #26b72b;"> Username</th>
+      <th  style=" border: 2px solid black;color: #26b72b;">Amount of point</th>
+      <th  style=" border: 2px solid black;color: #26b72b;">Amount of wins</th>
+      <th  style=" border: 2px solid black;color: #26b72b; ">Amount of lost</th>
+    </tr>
+  <tbody>
+  {% for value in score.values() %}
+   <tr >
+       <td  style=" border: 2px solid black; text-align:center;"> {{ value["name"] }} </td>
+       <td  style=" border: 2px solid black; text-align:center;"> {{ value["point"] }} </td>
+       <td  style=" border: 2px solid black; text-align:center;"> {{ value["win"] }} </td>
+       <td  style=" border: 2px solid black; text-align:center;"> {{ value["lost"] }} </td>
+   </tr>
+  {% endfor %}
+  </tbody>
+</table>
 </body>
 </html>

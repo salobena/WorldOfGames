@@ -1,5 +1,7 @@
 import random
 import os
+from Score import add_score
+from Utils import screen_cleaner
 
 
 def guess_game_greeting_gg(game_difficulty, name):
@@ -34,15 +36,19 @@ def compare_results(secret_number, choose_number):
 
 
 def play_gg(game_difficulty, name):
-    os.system('clear')
+    screen_cleaner()
     guess_game_greeting_gg(game_difficulty, name)
     secret_number = generate_number(game_difficulty)
     choose_number = get_guess_from_user(game_difficulty)
     result = compare_results(secret_number, choose_number)
     if result == 1:
         print(f"Congratulations you WON ! \n")
+        result = True
+        add_score(game_difficulty, name, result)
     else:
         print(f"Sorry you lost... the right numbers was {secret_number} \n")
+        result = False
+        add_score(game_difficulty, name, result)
     play_again = input("Would you like to play again? (y for yes): \n ")
     if play_again.lower() == 'y':
         play_gg(game_difficulty, name)

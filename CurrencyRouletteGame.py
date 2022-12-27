@@ -3,6 +3,8 @@
 import random
 import os
 from currency_converter import CurrencyConverter
+from Score import add_score
+from Utils import screen_cleaner
 
 
 def guess_game_greeting_crg(game_difficulty, name):
@@ -44,7 +46,7 @@ def get_guess_from_user(dollar_amount):
 
 
 def play_crg(game_difficulty, name):
-    os.system('clear')
+    screen_cleaner()
     guess_game_greeting_crg(game_difficulty, name)
     values = get_money_interval(game_difficulty)
     money_range = values[0]
@@ -52,8 +54,12 @@ def play_crg(game_difficulty, name):
     guess = get_guess_from_user(dollar_amount)
     if money_range[0] < guess < money_range[1]:
         print(" you Won!!" + " This is the range: " + str(money_range) + " and this is your guess: " + str(guess))
+        result = True
+        add_score(game_difficulty, name, result)
     else:
         print(" you lose" + " This is the range: " + str(money_range) + " and this is your guess: " + str(guess))
+        result = False
+        add_score(game_difficulty, name, result)
     play_again = input("Would you like to play again? (y for yes): \n ")
     if play_again.lower() == 'y':
         play_crg(game_difficulty, name)
